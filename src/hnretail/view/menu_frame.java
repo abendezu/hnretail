@@ -116,7 +116,7 @@ public class menu_frame extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        productos_vw prods = new productos_vw();
+        productos_reg prods = new productos_reg();
         jDesktopPane1.add(prods);
         prods.show();       
     }//GEN-LAST:event_jMenuItem1ActionPerformed
