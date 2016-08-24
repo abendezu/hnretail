@@ -16,7 +16,7 @@ public class Retail {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        new hnretail.view.menu_frame().setVisible(true);
+        new hnretail.view.Menu_frame().setVisible(true);
     }
     
 }

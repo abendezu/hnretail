@@ -7,25 +7,43 @@ package hnretail.model;
 public class Proveedor {
     
     private int codigo_proveedor;
-    private int descripcion;
+    private String nombre;
     private String direccion;
     private String telefono;
     private String email;
+    private String webpage;
+    private String contacto;
 
+    public String getContacto() {
+        return contacto;
+    }
+
+    public void setContacto(String contacto) {
+        this.contacto = contacto;
+    }
+    
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getWebpage() {
+        return webpage;
+    }
+
+    public void setWebpage(String webpage) {
+        this.webpage = webpage;
+    }   
+    
     public int getCodigo_proveedor() {
         return codigo_proveedor;
     }
 
     public void setCodigo_proveedor(int codigo_proveedor) {
         this.codigo_proveedor = codigo_proveedor;
-    }
-
-    public int getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(int descripcion) {
-        this.descripcion = descripcion;
     }
 
     public String getDireccion() {
