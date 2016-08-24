@@ -7,7 +7,7 @@ package hnretail.dml;
 
 import hnretail.dbutils.dbConn;
 import hnretail.model.Producto;
-import hnretail.queries.sqlProductos;
+import hnretail.queries.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -51,7 +51,38 @@ public class dataAccess {
                 return false;
             }
        return estado;
-    }    
+    }
+
+    public Object[] fill_combox(String tabla, String campo){
+        int registros = 0;
+        genericSql sqlSentence = new genericSql();
+        try{
+            ps = conn.getConnected().prepareStatement(sqlSentence.cuantos(tabla));
+            res = ps.executeQuery();
+            res.next();
+            registros = res.getInt(1); 
+            res.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+
+        Object[] valores = new Object[registros];
+        try{
+            ps = conn.getConnected().prepareStatement(sqlSentence.selectCampo(campo, tabla));
+            res = ps.executeQuery();
+            int i = 0;
+            while(res.next()){
+                valores[i] = res.getObject(1); 
+                i++;
+            }
+            res.close();
+        }catch(SQLException e){
+            System.out.println(e);
+        }
+        return valores;
+    }
+
+    
 }
     
 

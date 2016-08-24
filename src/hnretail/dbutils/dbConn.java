@@ -18,7 +18,7 @@ import javax.naming.NamingException;
  */
 public class dbConn {
        
-    private final String url = "jdbc:mysql://172.21.1.158/hnretail";
+    private final String url = "jdbc:mysql://localhost/hnretail";
     Connection conn = null;
    
     public dbConn() {
