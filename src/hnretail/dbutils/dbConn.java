@@ -5,9 +5,12 @@
  */
 package hnretail.dbutils;
 
+import java.io.File;
+import java.io.FileReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.naming.NamingException;
@@ -18,13 +21,37 @@ import javax.naming.NamingException;
  */
 public class dbConn {
        
-    private final String url = "jdbc:mysql://172.21.1.158/hnretail";
+    private String URL;// = "jdbc:mysql://172.21.1.158/hnretail";
+    private String Driver;
+    private String Username;
+    private String Password;
     Connection conn = null;
    
     public dbConn() {
+        
+        try{
+            
+            String path = System.getProperty("user.dir");
+            //System.out.println(path+"\\src\\utils");
+            File propertiesFile = new File(path+"\\src\\utils\\connection.properties");
+        
+            FileReader fileReader = new FileReader(propertiesFile);
+
+            Properties props = new Properties();
+            props.load(fileReader);
+            
+            Driver = props.getProperty("database.driver");
+            URL = props.getProperty("database.url");
+            Username = props.getProperty("database.user");
+            Password = props.getProperty("database.password");        
+            
+        } catch(Exception e){
+            System.out.println(e);
+        }
+        
         try{  
-            Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection(url,"hnretail","hnretail");
+            Class.forName(Driver);
+            conn = DriverManager.getConnection(URL,Username,Password);
             if (conn!=null){
                 System.out.println("Conexión a base de datos. listo");
             }
