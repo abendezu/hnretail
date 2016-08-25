@@ -171,6 +171,11 @@ public class Proveedores_regsearch extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        provsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                provsTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(provsTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -276,6 +281,20 @@ public class Proveedores_regsearch extends javax.swing.JInternalFrame {
         dA.cierra_Acceso();
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void provsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_provsTableMouseClicked
+        try{
+            int row = provsTable.getSelectedRow();
+            nombreProv.setText(provsTable.getModel().getValueAt(row, 1).toString());
+            direccionProv.setText(provsTable.getModel().getValueAt(row, 2).toString());
+            telPro.setText(provsTable.getModel().getValueAt(row, 3).toString());
+            webPro.setText(provsTable.getModel().getValueAt(row, 4).toString());
+            emailPro.setText(provsTable.getModel().getValueAt(row, 5).toString());
+            contactoPro.setText(provsTable.getModel().getValueAt(row, 6).toString());
+        }catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_provsTableMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
