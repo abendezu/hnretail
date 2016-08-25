@@ -14,6 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.naming.NamingException;
 
 /**
@@ -47,8 +49,9 @@ public class dataAccess {
                 ps.close();
                 //conn.Disconnect();
                 estado = true;
+                Logger.getLogger("HNRETAIL").info("Producto Registrado");
             }catch(SQLException e){
-                System.out.println("Error al Guardar: "+ ps +e);
+                Logger.getLogger("HNRETAIL").log(Level.SEVERE, "Error al Guardar: "+ ps +e);
                 return false;
             }
        return estado;

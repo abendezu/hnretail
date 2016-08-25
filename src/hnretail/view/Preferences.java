@@ -12,6 +12,7 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.OutputStream;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 /**
  *
@@ -44,12 +45,12 @@ public class Preferences extends javax.swing.JInternalFrame {
             UsernameField.setText(props.getProperty("database.user"));
             PasswordField.setText(props.getProperty("database.password"));        
             RetypeField.setText(props.getProperty("database.password"));                    
-            char[] pass = PasswordField.getPassword();
+/*            char[] pass = PasswordField.getPassword();
             String passString = new String(pass);
-            System.out.println("Este es el password "+ passString.toString()  );
-            
+            System.out.println("Este es el password "+ passString.toString()  );*/
+            Logger.getLogger("HNRETAIL").info("Preference Properties Loaded");
         } catch(Exception e){
-            System.out.println(e);
+            Logger.getLogger("HNRETAIL").severe("Properties Not Uploaded");
         }
         
     }
@@ -261,7 +262,7 @@ public class Preferences extends javax.swing.JInternalFrame {
             OutputStream out = new FileOutputStream( f );
             props.store(out, "Database Connection Parameters, Do not modify");
         } catch (Exception e ) {
-                System.out.println(e);
+                Logger.getLogger("HNRETAIL").severe(e.toString());
         }
             
         }
@@ -269,17 +270,17 @@ public class Preferences extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try{
-            System.out.println("ffff");
             testConn tC = new testConn();
-            System.out.println("ffffeeeeeee");
             if (tC.canConnect("SoftwareData")){
                 AlertLabel.setText("Conectado a Base de Datos");
+                Logger.getLogger("HNRETAIL").info("DB TEST CONN PASSED");
             }else{
                 AlertLabel.setText("No se pudo obtener una coneccion.");
+                Logger.getLogger("HNRETAIL").warning("DB TEST CONN FAILED");
             }
         } catch (Exception e){
             AlertLabel.setText("No se pudo obtener una coneccion.");
-            System.out.println("ffffeeeeeee "+e);
+            Logger.getLogger("HNRETAIL").warning("DB TEST CONN FAILED "+e.toString());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 

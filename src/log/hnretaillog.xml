@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2016-08-25T15:48:38</date>
+  <millis>1472161718764</millis>
+  <sequence>0</sequence>
+  <logger></logger>
+  <level>INFO</level>
+  <class>java.util.logging.LogManager$RootLogger</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Initiated </message>
+</record>
+<record>
+  <date>2016-08-25T15:48:59</date>
+  <millis>1472161739749</millis>
+  <sequence>1</sequence>
+  <logger>HNRETAIL</logger>
+  <level>SEVERE</level>
+  <class>hnretail.dml.dataAccess</class>
+  <method>registra_producto</method>
+  <thread>16</thread>
+  <message>Error al Guardar: com.mysql.jdbc.JDBC4PreparedStatement@1b160420: insert into producto(codigoBarra,nombreProducto,describeProd,precio_venta,precio_costo,cantidad,categoriaProd,proveedorProd) values('33','33','33',33.0,33.0,33,1,** NOT SPECIFIED **)java.sql.SQLException: No value specified for parameter 8</message>
+</record>
+</log>
