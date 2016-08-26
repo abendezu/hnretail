@@ -13,6 +13,8 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -230,10 +232,11 @@ public class productos_reg extends javax.swing.JInternalFrame {
                     .addComponent(codigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -382,14 +385,6 @@ public class productos_reg extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String cBoxValue;
-
-/*            System.out.println("Que hay aqui "+categoriaCbox.getSelectedItem().toString());
-            cBoxValue = categoriaCbox.getSelectedItem().toString();
-            System.out.println("Este es el indice "+cBoxValue.indexOf("("));
-            System.out.println("Este seria el substring"+cBoxValue.substring(cBoxValue.indexOf("(")+1,cBoxValue.lastIndexOf(")")));
-            cBoxValue = cBoxValue.substring(cBoxValue.indexOf('('), 1);
-            System.out.println("Este es el valor "+cBoxValue);*/
-        
         if (todolleno()){            
             Producto prod = new Producto();
             prod.setCodigoBarra(codigoBarra.getText());
@@ -414,7 +409,7 @@ public class productos_reg extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null, "No se pudo Guardar", "Error", JOptionPane.WARNING_MESSAGE);
             }
         }else {
-            System.out.println("Nop no entro");
+            Logger.getLogger("HNRETAIL").log(Level.INFO, "Missing Values in Prods Form");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
