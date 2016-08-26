@@ -13,22 +13,29 @@ import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import javax.swing.JOptionPane;
 import static java.lang.Integer.parseInt;
+import static java.lang.Integer.parseInt;
+import static java.lang.Integer.parseInt;
 
 /**
  *
  * @author abendezu
  */
-public class productos_reg extends javax.swing.JInternalFrame {
+public class Productos_reg extends javax.swing.JInternalFrame {
     
     dataAccess dA = new dataAccess();
     /**
      * Creates new form productos_vw
      */
-    public productos_reg() {
+    public Productos_reg() {
+        System.out.println("1");
         initComponents();
+        System.out.println("2");        
         clearScreen();
+        System.out.println("3");        
         cboxes();
+        System.out.println("4");        
         codigoBarra.requestFocus();
+        System.out.println("5");        
     }
 
     /**
@@ -230,10 +237,11 @@ public class productos_reg extends javax.swing.JInternalFrame {
                     .addComponent(codigoBarra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nombreProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(46, 46, 46)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -273,20 +281,30 @@ public class productos_reg extends javax.swing.JInternalFrame {
     }
     
     public void cboxes(){
-        
+        System.out.println("11");        
         categoriaCbox.removeAllItems();
+        System.out.println("12");        
         categoriaCbox.addItem("<--Seleccione-->");
+        System.out.println("13");        
         proveedorCbox.removeAllItems();
+        System.out.println("14");        
         proveedorCbox.addItem("<--Seleccione-->");
+        System.out.println("15");        
         
         Object[] prov = dA.fill_combox("proveedor", "concat(NombreProveedor,' (',codigoProveedor,')')"); 
+        System.out.println("16");        
         for(int i=0;i<prov.length;i++){
-            proveedorCbox.addItem((String) prov[i]);
+        System.out.println("17");            
+            //proveedorCbox.addItem((String) prov[i]);
+            proveedorCbox.addItem(prov[i].toString());
         }            
-
+        System.out.println("18");
         Object[] cate = dA.fill_combox("categoria", "concat(tipoCategoria,' (',codigoCategoria,')')"); 
+        System.out.println("19");        
         for(int i=0;i<cate.length;i++){
-            categoriaCbox.addItem((String) cate[i]);
+        System.out.println("20");            
+            //categoriaCbox.addItem((String) cate[i]);
+            categoriaCbox.addItem(cate[i].toString());            
         }            
 
     }
@@ -373,6 +391,7 @@ public class productos_reg extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_precioCostoActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        dA.cierra_Acceso();
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
