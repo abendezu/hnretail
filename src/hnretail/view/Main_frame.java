@@ -184,7 +184,7 @@ public class Main_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        productos_reg prods = new productos_reg();
+        Productos_reg prods = new Productos_reg();
         jDesktopPane1.add(prods);
         prods.show();                   
     }//GEN-LAST:event_jMenuItem3ActionPerformed
